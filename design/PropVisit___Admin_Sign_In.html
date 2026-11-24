@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropVisit — Admin Sign In</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="501cc1bcb4b9fee4===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#0D7A6F',
+        'on-accent': '#FFFFFF',
+        'accent-container': '#CCFBF1',
+        'on-accent-container': '#115E59',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#92400E',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#102A43',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#E9F1FF',
+        'light-on-primary-container': '#011D35',
+        'light-secondary': '#49607C',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D8E0EF',
+        'light-on-secondary-container': '#19324B',
+        'light-tertiary': '#77592E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFEEDC',
+        'light-on-tertiary-container': '#291800',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#102A43',
+        'light-surface': '#FFFFFF',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F8FAFC',
+        'light-surface-container': '#F1F5F9',
+        'light-surface-container-high': '#E2E8F0',
+        'light-surface-container-highest': '#CBD5E1',
+        'light-on-surface': '#1B1C1E',
+        'light-surface-variant': '#E0E2EA',
+        'light-on-surface-variant': '#43474D',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#CBD5E1',
+        'light-inverse-surface': '#1E293B',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#B0C9E8',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '56px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Raleway"', 'sans-serif'],
+        'body': ['"Raleway"', 'sans-serif'],
+        'label': ['"Raleway"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['34px', { lineHeight: '42px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '34px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.3px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '240ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Raleway:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body min-h-screen flex flex-col items-center justify-center p-4 md:p-6">
+
+  <main class="w-full max-w-md bg-light-surface border border-light-outline-variant rounded-md p-8 shadow-sm flex flex-col gap-6">
+    <div class="flex flex-col items-center text-center gap-2">
+      <span class="w-12 h-12 rounded bg-light-primary text-light-on-primary flex items-center justify-center">
+        <span class="material-symbols-outlined text-headline-md" aria-hidden="true">admin_panel_settings</span>
+      </span>
+      <h1 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-on-background" data-design-text-token="headline-lg">
+        Admin Portal
+      </h1>
+      <p class="text-body-md text-light-outline" data-design-text-token="body-md">
+        Sign in to manage PropVisit listings, visit slots, and customer appointments.
+      </p>
+    </div>
+
+    <form id="admin-login-form" class="flex flex-col gap-4" novalidate>
+      <label data-component-id="input-field-icon" data-component-type="input-field" data-component-variant="with-icon" class="flex flex-col gap-1.5">
+        <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Work Email</span>
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-light-outline text-title-md pointer-events-none" aria-hidden="true">mail</span>
+          <input id="admin-email" type="email" inputmode="email" placeholder="admin@propvisit.io" required class="w-full rounded border border-light-outline-variant bg-light-surface pl-10 pr-3.5 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+        </div>
+      </label>
+
+      <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="password" class="flex flex-col gap-1.5">
+        <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Password</span>
+        <div class="relative flex items-center">
+          <input id="admin-password" type="password" autocomplete="current-password" placeholder="Enter your password" required class="w-full rounded border border-light-outline-variant bg-light-surface pl-3.5 pr-10 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          <button id="toggle-password" type="button" aria-label="Show password" class="absolute right-3 text-light-outline hover:text-light-primary">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">visibility</span>
+          </button>
+        </div>
+      </label>
+
+      <p id="login-error" class="hidden text-body-md text-light-on-error-container bg-light-error-container px-4 py-2.5 rounded" role="alert" data-design-text-token="body-md">
+        Enter a valid administrator email and password.
+      </p>
+
+      <button type="submit" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="mt-2 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">lock</span>
+        <span data-design-text-token="label-lg">Sign In to Dashboard</span>
+      </button>
+    </form>
+
+    <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between text-label-sm text-light-outline">
+      <span data-design-text-token="label-sm">JWT Role-Based Access</span>
+      <a href="../customer-portal/CustomerPortal.html" class="text-light-primary hover:underline" data-design-text-token="label-sm">Return to Customer Portal</a>
+    </div>
+  </main>
+
+  <script>
+    const pwdInput = document.getElementById('admin-password');
+    const toggleBtn = document.getElementById('toggle-password');
+    toggleBtn.addEventListener('click', () => {
+      const isPwd = pwdInput.type === 'password';
+      pwdInput.type = isPwd ? 'text' : 'password';
+      toggleBtn.querySelector('span').textContent = isPwd ? 'visibility_off' : 'visibility';
+    });
+
+    document.getElementById('admin-login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('admin-email').value.trim();
+      const pwd = pwdInput.value.trim();
+      const err = document.getElementById('login-error');
+      if (!email.includes('@') || pwd.length < 6) {
+        err.classList.remove('hidden');
+        return;
+      }
+      window.location.href = '../admin-dashboard/AdminDashboard.html';
+    });
+  </script>
+
+
+</body></html>

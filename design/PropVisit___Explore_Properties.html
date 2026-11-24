@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropVisit — Explore Properties</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="501cc1bcb4b9fee4===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#0D7A6F',
+        'on-accent': '#FFFFFF',
+        'accent-container': '#CCFBF1',
+        'on-accent-container': '#115E59',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#92400E',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#102A43',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#E9F1FF',
+        'light-on-primary-container': '#011D35',
+        'light-secondary': '#49607C',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D8E0EF',
+        'light-on-secondary-container': '#19324B',
+        'light-tertiary': '#77592E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFEEDC',
+        'light-on-tertiary-container': '#291800',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#102A43',
+        'light-surface': '#FFFFFF',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F8FAFC',
+        'light-surface-container': '#F1F5F9',
+        'light-surface-container-high': '#E2E8F0',
+        'light-surface-container-highest': '#CBD5E1',
+        'light-on-surface': '#1B1C1E',
+        'light-surface-variant': '#E0E2EA',
+        'light-on-surface-variant': '#43474D',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#CBD5E1',
+        'light-inverse-surface': '#1E293B',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#B0C9E8',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '56px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Raleway"', 'sans-serif'],
+        'body': ['"Raleway"', 'sans-serif'],
+        'label': ['"Raleway"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['34px', { lineHeight: '42px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '34px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.3px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '240ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Raleway:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared Navigation Shell -->
+  <header class="sticky top-0 z-30 bg-light-surface border-b border-light-outline-variant">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#home" class="flex items-center gap-2.5 text-light-primary">
+        <span class="w-9 h-9 rounded bg-light-primary text-light-on-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-title-lg" aria-hidden="true">real_estate_agent</span>
+        </span>
+        <span class="font-headline text-headline-md text-light-primary" data-design-text-token="headline-md">PropVisit</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden md:flex items-center gap-6">
+        <a href="#home" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">Home</a>
+        <a href="#properties" class="text-label-lg text-light-primary border-b-2 border-light-primary py-1" data-design-text-token="label-lg">Explore Properties</a>
+        <a href="../my-bookings/MyBookings.html" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">My Bookings</a>
+        <a href="#about" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">About Us</a>
+        <a href="#contact" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#login" data-component-id="button-secondary" data-component-type="button" data-component-variant="secondary" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg hover:bg-light-surface-container transition-colors duration-state-change">
+          <span data-design-text-token="label-lg">Login / Register</span>
+        </a>
+        <button id="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded border border-light-outline-variant bg-light-surface text-light-on-surface">
+          <span class="material-symbols-outlined text-title-lg" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-light-outline-variant bg-light-surface px-4 py-4 flex flex-col gap-3">
+      <a href="#home" class="text-label-lg text-light-on-surface-variant py-1" data-design-text-token="label-lg">Home</a>
+      <a href="#properties" class="text-label-lg text-light-primary py-1" data-design-text-token="label-lg">Explore Properties</a>
+      <a href="../my-bookings/MyBookings.html" class="text-label-lg text-light-on-surface-variant py-1" data-design-text-token="label-lg">My Bookings</a>
+      <a href="#about" class="text-label-lg text-light-on-surface-variant py-1" data-design-text-token="label-lg">About Us</a>
+      <a href="#contact" class="text-label-lg text-light-on-surface-variant py-1" data-design-text-token="label-lg">Contact</a>
+      <a href="#login" class="mt-2 inline-flex items-center justify-center px-4 py-2 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg" data-design-text-token="label-lg">Login / Register</a>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden bg-light-primary">
+      <img src="https://lh3.googleusercontent.com/aida/ALJJyrCPuFOWyJC7-SDLPxUBlYPc3ZapHgd1kzn_NAN_4u7OCAYMKZR-O-SYOLLYya7n6crVzuK0phzaC5-5rr4NKE0-J9ZZgsK7ZEog0jp1maNNXx0O5j1ylIlaVHpm7vq2kXAg0Qo0o-jwdIRkj2d7yo-f8FRBlRqlZuhPowoPln83Z01lq0tGW07s0fnWPErroTat-QWhw-CqpJNbEf18hx1_UPoOIVVXjqV9gsNFD5MaJ0ULcDsArFFT" alt="Modern architectural residence illuminated at twilight" class="absolute inset-0 w-full h-full object-cover" data-stitch-original-src="db0d1979554802a2===../../images/hero_residence.jpg">
+      <div class="absolute inset-0 bg-light-primary/75"></div>
+      <div class="relative max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+        <div class="max-w-2xl flex flex-col gap-5">
+          <h1 class="font-headline text-display-lg-mobile md:text-display-lg text-light-on-primary text-balance" data-design-text-token="display-lg">
+            Find Your Dream Property. Experience It Before You Decide.
+          </h1>
+          <p class="text-body-lg text-light-on-primary/90 text-pretty max-w-prose" data-design-text-token="body-lg">
+            Discover properties, schedule personalized site visits, and take the next step toward your dream home.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#properties" data-component-id="button-accent" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-accent text-on-accent text-label-lg hover:opacity-90 transition-opacity duration-state-change">
+              <span data-design-text-token="label-lg">Explore Properties</span>
+            </a>
+            <a href="../visit-booking/VisitBooking.html" data-component-id="button-secondary-with-icon" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-surface text-light-primary text-label-lg hover:bg-light-surface-container transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">calendar_month</span>
+              <span data-design-text-token="label-lg">Schedule a Visit</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search, Filter & Sort Section -->
+    <section id="properties" class="max-w-7xl mx-auto px-4 md:px-6 py-12 flex flex-col gap-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-on-background" data-design-text-token="headline-lg">
+            Available Properties
+          </h2>
+          <p class="text-body-md text-light-outline mt-1" data-design-text-token="body-md">
+            Filter by location, price range, or layout and book an in-person walkthrough.
+          </p>
+        </div>
+        <span id="results-count" class="text-label-lg text-light-on-surface-variant tabular-nums" data-design-text-token="label-lg">
+          Showing 4 properties
+        </span>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="bg-light-surface border border-light-outline-variant rounded-md p-5 shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 items-end">
+        <label class="flex flex-col gap-1.5 lg:col-span-2">
+          <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Search</span>
+          <div class="relative flex items-center">
+            <span class="material-symbols-outlined absolute left-3 text-light-outline text-title-md pointer-events-none" aria-hidden="true">search</span>
+            <input id="filter-search" type="search" placeholder="Property name or neighborhood..." class="w-full rounded border border-light-outline-variant bg-light-surface pl-10 pr-3 py-2 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          </div>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Location</span>
+          <select id="filter-location" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <option value="all">All Locations</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Austin">Austin</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Property Type</span>
+          <select id="filter-type" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <option value="all">All Types</option>
+            <option value="Villa">Villa</option>
+            <option value="Penthouse">Penthouse</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Modern Home">Modern Home</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Bedrooms</span>
+          <select id="filter-beds" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <option value="0">Any Beds</option>
+            <option value="2">2+ Beds</option>
+            <option value="3">3+ Beds</option>
+            <option value="4">4+ Beds</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Sort by Price</span>
+          <select id="sort-price" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <option value="featured">Featured</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Property Grid -->
+      <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 items-stretch">
+        <!-- Property 1 -->
+        <article data-component-id="card-action" data-component-type="card" data-component-variant="action" data-location="San Francisco" data-type="Villa" data-beds="4" data-price="1280000" class="property-card bg-light-surface border border-light-outline-variant rounded-md overflow-hidden shadow-sm flex flex-col h-full transition-shadow duration-state-change hover:shadow-md">
+          <div class="relative h-64 bg-light-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC7TLtFQmDIWSBcVHMGsDSNsOICdPwIDcBx6yFy6CtFXp5VhinInJr3d0moNltr1dFyARWmLAgiEr1qh1rGy5yC6zxVFWxzOddjZHHYT4eKs3VlWFgacSz-jEXlmr8Ih9b13RBJEx3g3Zh1mkOleR3JQ6RP8_oz-SY7rdb2c9NZf7fEA0eYZUmUPrSi0QNtVYAZ4G9U5VXSgZl3k3xzesB-uQqw3OmMyxQ_Joe0sEzDUyMjI_g" alt="The Laurel Residence exterior" class="w-full h-full object-cover" data-stitch-original-src="85df91160a9085cd===../../images/prop_laurel.jpg">
+          </div>
+          <div class="p-6 flex flex-col flex-1 gap-3">
+            <header class="flex flex-col gap-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="font-title text-title-lg text-light-primary tabular-nums" data-design-text-token="title-lg">$1,280,000</span>
+                <span class="text-label-sm bg-accent-container text-on-accent-container px-2.5 py-0.5 rounded-full" data-design-text-token="label-sm">Villa</span>
+              </div>
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">The Laurel Residence</h3>
+              <p class="text-body-md text-light-outline flex items-center gap-1" data-design-text-token="body-md">
+                <span class="material-symbols-outlined text-body-md" aria-hidden="true">location_on</span>
+                <span>Pacific Heights, San Francisco</span>
+              </p>
+            </header>
+            <p class="text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">
+              Sunlit contemporary home featuring floor-to-ceiling cedar framing, chef&#39;s kitchen, and a private courtyard garden.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 pt-3 border-t border-light-outline-variant text-body-md text-light-on-surface-variant tabular-nums">
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bed</span> 4 Beds</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bathtub</span> 3.5 Baths</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">square_foot</span> 2,840 sq ft</span>
+            </div>
+            <footer class="mt-auto pt-4 grid grid-cols-2 gap-3">
+              <a href="../property-details/PropertyDetails.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg hover:bg-light-surface-container transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">View Details</span>
+              </a>
+              <a href="../visit-booking/VisitBooking.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Book a Visit</span>
+              </a>
+            </footer>
+          </div>
+        </article>
+
+        <!-- Property 2 -->
+        <article data-component-id="card-action" data-component-type="card" data-component-variant="action" data-location="Seattle" data-type="Penthouse" data-beds="3" data-price="945000" class="property-card bg-light-surface border border-light-outline-variant rounded-md overflow-hidden shadow-sm flex flex-col h-full transition-shadow duration-state-change hover:shadow-md">
+          <div class="relative h-64 bg-light-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrA1zn4UYLM7R8bsM7VGodjW4QfcSm29GS-_K6QRHVFirnj1ei8_HXs3SMD0w4tNoLl9onVZqc1Y7hblRhWitMGLn6z8bB3lAcrBY_fdK90bHzHxll_0kDncGAKDHYqm9xdRdX5kk8gikMNwExcv-7Hga6kKlmjpyUJB5POzNaYdeyH1A6NQ3AF1btv2NFwOqwVrgLTK3Tt4QHo2RXpt1BR58UGSi0bzFzNUfnRbeCCKZpKRBHs" alt="Mercer Sky Penthouse living room" class="w-full h-full object-cover" data-stitch-original-src="6ccd4e99c260ca1b===../../images/prop_mercer.jpg">
+          </div>
+          <div class="p-6 flex flex-col flex-1 gap-3">
+            <header class="flex flex-col gap-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="font-title text-title-lg text-light-primary tabular-nums" data-design-text-token="title-lg">$945,000</span>
+                <span class="text-label-sm bg-light-primary-container text-light-on-primary-container px-2.5 py-0.5 rounded-full" data-design-text-token="label-sm">Penthouse</span>
+              </div>
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Mercer Sky Penthouse</h3>
+              <p class="text-body-md text-light-outline flex items-center gap-1" data-design-text-token="body-md">
+                <span class="material-symbols-outlined text-body-md" aria-hidden="true">location_on</span>
+                <span>Belltown, Seattle</span>
+              </p>
+            </header>
+            <p class="text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">
+              Corner residence with panoramic skyline glass, wide-plank white oak floors, and private elevator access.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 pt-3 border-t border-light-outline-variant text-body-md text-light-on-surface-variant tabular-nums">
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bed</span> 3 Beds</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bathtub</span> 2.5 Baths</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">square_foot</span> 2,120 sq ft</span>
+            </div>
+            <footer class="mt-auto pt-4 grid grid-cols-2 gap-3">
+              <a href="../property-details/PropertyDetails.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg hover:bg-light-surface-container transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">View Details</span>
+              </a>
+              <a href="../visit-booking/VisitBooking.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Book a Visit</span>
+              </a>
+            </footer>
+          </div>
+        </article>
+
+        <!-- Property 3 -->
+        <article data-component-id="card-action" data-component-type="card" data-component-variant="action" data-location="San Francisco" data-type="Townhouse" data-beds="3" data-price="1120000" class="property-card bg-light-surface border border-light-outline-variant rounded-md overflow-hidden shadow-sm flex flex-col h-full transition-shadow duration-state-change hover:shadow-md">
+          <div class="relative h-64 bg-light-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDOLM64MR8DEs9iGzD2E5bdQHUEzIGK3979lYKsVp9CeNtzgI3-wj0zo3poew7yUHLK-ossuVgx7zINFkdR097XPT-T7GXW8igLsKK-xY5N7YTvIOmLQ5a5D8Gg_me4osle368u6DUHbTTbV6HrEeshPd_bdi68RP-5KalmT0UhUIpmVG7LzIR_SZcxhqhyHUMPJEA-mamYo5FPjs6WuFNiY51UbOpReOkPlzGCxMFqfYutPw" alt="Harborview Limestone Townhouse" class="w-full h-full object-cover" data-stitch-original-src="e841d986b9896490===../../images/prop_harbor.jpg">
+          </div>
+          <div class="p-6 flex flex-col flex-1 gap-3">
+            <header class="flex flex-col gap-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="font-title text-title-lg text-light-primary tabular-nums" data-design-text-token="title-lg">$1,120,000</span>
+                <span class="text-label-sm bg-light-secondary-container text-light-on-secondary-container px-2.5 py-0.5 rounded-full" data-design-text-token="label-sm">Townhouse</span>
+              </div>
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Harborview Townhouse</h3>
+              <p class="text-body-md text-light-outline flex items-center gap-1" data-design-text-token="body-md">
+                <span class="material-symbols-outlined text-body-md" aria-hidden="true">location_on</span>
+                <span>Marina District, San Francisco</span>
+              </p>
+            </header>
+            <p class="text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">
+              Waterfront limestone residence featuring a private rooftop terrace, radiant floor heating, and two-car garage.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 pt-3 border-t border-light-outline-variant text-body-md text-light-on-surface-variant tabular-nums">
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bed</span> 3 Beds</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bathtub</span> 3 Baths</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">square_foot</span> 2,410 sq ft</span>
+            </div>
+            <footer class="mt-auto pt-4 grid grid-cols-2 gap-3">
+              <a href="../property-details/PropertyDetails.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg hover:bg-light-surface-container transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">View Details</span>
+              </a>
+              <a href="../visit-booking/VisitBooking.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Book a Visit</span>
+              </a>
+            </footer>
+          </div>
+        </article>
+
+        <!-- Property 4 -->
+        <article data-component-id="card-action" data-component-type="card" data-component-variant="action" data-location="Austin" data-type="Modern Home" data-beds="4" data-price="785000" class="property-card bg-light-surface border border-light-outline-variant rounded-md overflow-hidden shadow-sm flex flex-col h-full transition-shadow duration-state-change hover:shadow-md">
+          <div class="relative h-64 bg-light-surface-container overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDPD3UZRKKZLpULDBzockGc-DS3JbvICRhmWISYh7r33OUF1106OL4ZudDmxpk7trlTPHYvV3XRqctS_r_dlFFBzsMFKXSVL-tGsob5t9ZZvn4MYKXz93ncW9BU4k4wHmKUof1ZMtSo8C6o4fHK3wVaBW0bRMLImCsvIfM8OIz80UhbqLPzYTe7nXf4zk7ILZ0ytl4Rp3UroZxDxLIP81BBsWN1c-9HdzGuH3EcZCsrcPD7Y6K3" alt="Oakridge Modern Home" class="w-full h-full object-cover" data-stitch-original-src="3d9dfaf702518f06===../../images/prop_oakridge.jpg">
+          </div>
+          <div class="p-6 flex flex-col flex-1 gap-3">
+            <header class="flex flex-col gap-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="font-title text-title-lg text-light-primary tabular-nums" data-design-text-token="title-lg">$785,000</span>
+                <span class="text-label-sm bg-light-tertiary-container text-light-on-tertiary-container px-2.5 py-0.5 rounded-full" data-design-text-token="label-sm">Modern Home</span>
+              </div>
+              <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Oakridge Pavilion</h3>
+              <p class="text-body-md text-light-outline flex items-center gap-1" data-design-text-token="body-md">
+                <span class="material-symbols-outlined text-body-md" aria-hidden="true">location_on</span>
+                <span>Westlake Hills, Austin</span>
+              </p>
+            </header>
+            <p class="text-body-md text-light-on-surface-variant text-pretty" data-design-text-token="body-md">
+              Mid-century inspired concrete and timber home shaded by heritage oaks with a dedicated guest studio.
+            </p>
+            <div class="flex flex-wrap items-center gap-4 pt-3 border-t border-light-outline-variant text-body-md text-light-on-surface-variant tabular-nums">
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bed</span> 4 Beds</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">bathtub</span> 3 Baths</span>
+              <span class="flex items-center gap-1" data-design-text-token="body-md"><span class="material-symbols-outlined text-title-md text-light-outline" aria-hidden="true">square_foot</span> 2,690 sq ft</span>
+            </div>
+            <footer class="mt-auto pt-4 grid grid-cols-2 gap-3">
+              <a href="../property-details/PropertyDetails.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg hover:bg-light-surface-container transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">View Details</span>
+              </a>
+              <a href="../visit-booking/VisitBooking.html" class="inline-flex items-center justify-center px-4 py-2.5 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Book a Visit</span>
+              </a>
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="contact" class="bg-light-surface border-t border-light-outline-variant mt-auto">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <span class="font-headline text-headline-md text-light-primary" data-design-text-token="headline-md">PropVisit</span>
+        <p class="text-body-md text-light-outline mt-2 max-w-xs" data-design-text-token="body-md">
+          Verified property walkthroughs and real-time site visit scheduling for discerning buyers and tenants.
+        </p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Explore</span>
+        <a href="#properties" class="text-body-md text-light-outline hover:text-light-primary" data-design-text-token="body-md">Explore Properties</a>
+        <a href="../my-bookings/MyBookings.html" class="text-body-md text-light-outline hover:text-light-primary" data-design-text-token="body-md">My Bookings</a>
+        <a href="../visit-booking/VisitBooking.html" class="text-body-md text-light-outline hover:text-light-primary" data-design-text-token="body-md">Schedule a Visit</a>
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Concierge Desk</span>
+        <span class="text-body-md text-light-outline" data-design-text-token="body-md">visits@propvisit.io</span>
+        <span class="text-body-md text-light-outline tabular-nums" data-design-text-token="body-md">+1 (415) 890-4410</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    const searchInput = document.getElementById('filter-search');
+    const locationSelect = document.getElementById('filter-location');
+    const typeSelect = document.getElementById('filter-type');
+    const bedsSelect = document.getElementById('filter-beds');
+    const sortSelect = document.getElementById('sort-price');
+    const grid = document.getElementById('property-grid');
+    const countLabel = document.getElementById('results-count');
+
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      const loc = locationSelect.value;
+      const type = typeSelect.value;
+      const minBeds = Number(bedsSelect.value);
+      const sortOrder = sortSelect.value;
+
+      const cards = Array.from(grid.querySelectorAll('.property-card'));
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const text = card.textContent.toLowerCase();
+        const matchQuery = !query || text.includes(query);
+        const matchLoc = loc === 'all' || card.dataset.location === loc;
+        const matchType = type === 'all' || card.dataset.type === type;
+        const matchBeds = Number(card.dataset.beds) >= minBeds;
+        const show = matchQuery && matchLoc && matchType && matchBeds;
+        card.classList.toggle('hidden', !show);
+        if (show) visibleCount++;
+      });
+
+      if (sortOrder !== 'featured') {
+        cards.sort((a, b) => {
+          const pa = Number(a.dataset.price);
+          const pb = Number(b.dataset.price);
+          return sortOrder === 'asc' ? pa - pb : pb - pa;
+        });
+        cards.forEach((c) => grid.appendChild(c));
+      }
+
+      countLabel.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'property' : 'properties'}`;
+    }
+
+    [searchInput, locationSelect, typeSelect, bedsSelect, sortSelect].forEach((el) => {
+      el.addEventListener('input', applyFilters);
+      el.addEventListener('change', applyFilters);
+    });
+  </script>
+
+
+</body></html>

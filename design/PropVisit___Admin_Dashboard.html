@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropVisit — Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="501cc1bcb4b9fee4===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#0D7A6F',
+        'on-accent': '#FFFFFF',
+        'accent-container': '#CCFBF1',
+        'on-accent-container': '#115E59',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#92400E',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#102A43',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#E9F1FF',
+        'light-on-primary-container': '#011D35',
+        'light-secondary': '#49607C',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D8E0EF',
+        'light-on-secondary-container': '#19324B',
+        'light-tertiary': '#77592E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFEEDC',
+        'light-on-tertiary-container': '#291800',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#102A43',
+        'light-surface': '#FFFFFF',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F8FAFC',
+        'light-surface-container': '#F1F5F9',
+        'light-surface-container-high': '#E2E8F0',
+        'light-surface-container-highest': '#CBD5E1',
+        'light-on-surface': '#1B1C1E',
+        'light-surface-variant': '#E0E2EA',
+        'light-on-surface-variant': '#43474D',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#CBD5E1',
+        'light-inverse-surface': '#1E293B',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#B0C9E8',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '56px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Raleway"', 'sans-serif'],
+        'body': ['"Raleway"', 'sans-serif'],
+        'label': ['"Raleway"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['34px', { lineHeight: '42px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '34px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.3px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '240ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Raleway:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body min-h-screen flex flex-col lg:flex-row">
+
+  <!-- Shared Admin Sidebar -->
+  <aside class="hidden lg:flex lg:w-64 shrink-0 bg-light-primary text-light-on-primary min-h-screen flex-col justify-between p-6">
+    <div class="flex flex-col gap-8">
+      <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded bg-accent text-on-accent flex items-center justify-center">
+          <span class="material-symbols-outlined text-title-lg" aria-hidden="true">real_estate_agent</span>
+        </span>
+        <span class="font-headline text-headline-md text-light-on-primary" data-design-text-token="headline-md">PropVisit</span>
+      </a>
+
+      <nav aria-label="Admin Navigation" class="flex flex-col gap-1.5">
+        <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded bg-light-secondary text-light-on-secondary text-label-lg">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">dashboard</span>
+          <span data-design-text-token="label-lg">Overview &amp; Bookings</span>
+        </a>
+        <a href="../admin-properties/AdminProperties.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-light-on-primary/85 hover:bg-light-secondary/60 text-label-lg transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">home_work</span>
+          <span data-design-text-token="label-lg">Properties</span>
+        </a>
+        <a href="../admin-slots/AdminSlots.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-light-on-primary/85 hover:bg-light-secondary/60 text-label-lg transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">schedule</span>
+          <span data-design-text-token="label-lg">Time Slots</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-3 pt-6 border-t border-light-secondary">
+      <a href="../customer-portal/CustomerPortal.html" class="flex items-center gap-2.5 text-body-md text-light-on-primary/85 hover:text-light-on-primary">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">open_in_new</span>
+        <span data-design-text-token="body-md">Customer Portal</span>
+      </a>
+      <a href="../admin-login/AdminLogin.html" class="flex items-center gap-2.5 text-body-md text-light-on-primary/85 hover:text-light-on-primary">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">logout</span>
+        <span data-design-text-token="body-md">Sign Out</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile Admin Header -->
+  <header class="lg:hidden bg-light-primary text-light-on-primary px-4 py-3 flex items-center justify-between">
+    <span class="font-headline text-title-lg" data-design-text-token="title-lg">PropVisit Admin</span>
+    <nav class="flex items-center gap-4 text-label-sm">
+      <a href="../admin-dashboard/AdminDashboard.html" class="underline" data-design-text-token="label-sm">Bookings</a>
+      <a href="../admin-properties/AdminProperties.html" data-design-text-token="label-sm">Properties</a>
+      <a href="../admin-slots/AdminSlots.html" data-design-text-token="label-sm">Slots</a>
+    </nav>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 min-w-0 p-4 md:p-8 flex flex-col gap-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-on-background" data-design-text-token="headline-lg">
+          Admin Overview
+        </h1>
+        <p class="text-body-md text-light-outline mt-1" data-design-text-token="body-md">
+          Live property visit metrics and appointment approvals.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 bg-light-surface border border-light-outline-variant rounded-full px-3.5 py-1.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
+        <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Elena Rostova · Senior Admin</span>
+      </div>
+    </div>
+
+    <!-- 6 Dynamic Summary Cards -->
+    <section aria-label="Dashboard Summary" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface border border-light-outline-variant rounded-md p-4 shadow-sm flex flex-col gap-1">
+        <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Total Properties</span>
+        <p class="font-headline text-headline-md text-light-primary tabular-nums" data-design-text-token="headline-md">12</p>
+      </article>
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface border border-light-outline-variant rounded-md p-4 shadow-sm flex flex-col gap-1">
+        <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Total Bookings</span>
+        <p class="font-headline text-headline-md text-light-primary tabular-nums" data-design-text-token="headline-md">48</p>
+      </article>
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface border border-light-outline-variant rounded-md p-4 shadow-sm flex flex-col gap-1">
+        <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Pending</span>
+        <p class="font-headline text-headline-md text-warning tabular-nums" data-design-text-token="headline-md">7</p>
+      </article>
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface border border-light-outline-variant rounded-md p-4 shadow-sm flex flex-col gap-1">
+        <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Confirmed</span>
+        <p class="font-headline text-headline-md text-success tabular-nums" data-design-text-token="headline-md">24</p>
+      </article>
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface border border-light-outline-variant rounded-md p-4 shadow-sm flex flex-col gap-1">
+        <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Completed</span>
+        <p class="font-headline text-headline-md text-light-secondary tabular-nums" data-design-text-token="headline-md">13</p>
+      </article>
+      <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="bg-light-surface border border-light-outline-variant rounded-md p-4 shadow-sm flex flex-col gap-1">
+        <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Cancelled</span>
+        <p class="font-headline text-headline-md text-light-error tabular-nums" data-design-text-token="headline-md">4</p>
+      </article>
+    </section>
+
+    <!-- Booking Management Table -->
+    <section class="bg-light-surface border border-light-outline-variant rounded-md shadow-sm flex flex-col">
+      <div class="p-5 border-b border-light-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <h2 class="font-headline text-headline-md text-light-on-background" data-design-text-token="headline-md">Booking Management</h2>
+        <div class="flex flex-wrap items-center gap-3">
+          <input id="admin-booking-search" type="search" placeholder="Search customer or ID..." class="rounded border border-light-outline-variant bg-light-surface px-3 py-1.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          <select id="admin-status-filter" class="rounded border border-light-outline-variant bg-light-surface px-3 py-1.5 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <option value="all">All Statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-light-outline-variant bg-light-surface-container-low text-label-sm text-light-on-surface-variant">
+              <th class="py-3 px-4" data-design-text-token="label-sm">Booking ID</th>
+              <th class="py-3 px-4" data-design-text-token="label-sm">Customer</th>
+              <th class="py-3 px-4" data-design-text-token="label-sm">Property</th>
+              <th class="py-3 px-4" data-design-text-token="label-sm">Visit Date &amp; Slot</th>
+              <th class="py-3 px-4" data-design-text-token="label-sm">Status</th>
+              <th class="py-3 px-4 text-right" data-design-text-token="label-sm">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-bookings-body" class="divide-y divide-light-outline-variant text-body-md">
+            <tr class="booking-tr" data-status="Pending">
+              <td class="py-3.5 px-4 font-mono text-mono-md text-light-primary tabular-nums" data-design-text-token="mono-md">PV-2026-7902</td>
+              <td class="py-3.5 px-4">
+                <span class="block text-light-on-surface font-medium" data-design-text-token="body-md">Marcus Chen</span>
+                <span class="block text-label-sm text-light-outline" data-design-text-token="label-sm">marcus.chen@pacific.io · (415) 555-0148</span>
+              </td>
+              <td class="py-3.5 px-4 text-light-on-surface" data-design-text-token="body-md">Mercer Sky Penthouse</td>
+              <td class="py-3.5 px-4 tabular-nums">
+                <span class="block text-light-on-surface" data-design-text-token="body-md">Dec 02, 2026</span>
+                <span class="block font-mono text-mono-md text-light-outline" data-design-text-token="mono-md">03:00 PM – 03:45 PM</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="row-status inline-flex items-center px-2.5 py-0.5 rounded-full bg-warning-container text-on-warning-container text-label-sm" data-design-text-token="label-sm">Pending</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="inline-flex items-center gap-2">
+                  <button type="button" data-action="Confirmed" class="action-trigger px-3 py-1 rounded bg-accent text-on-accent text-label-sm hover:opacity-90" data-design-text-token="label-sm">Confirm</button>
+                  <button type="button" data-action="Rejected" class="action-trigger px-3 py-1 rounded border border-light-error text-light-error text-label-sm hover:bg-light-error-container" data-design-text-token="label-sm">Reject</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="booking-tr" data-status="Confirmed">
+              <td class="py-3.5 px-4 font-mono text-mono-md text-light-primary tabular-nums" data-design-text-token="mono-md">PV-2026-8419</td>
+              <td class="py-3.5 px-4">
+                <span class="block text-light-on-surface font-medium" data-design-text-token="body-md">Elena Vance</span>
+                <span class="block text-label-sm text-light-outline" data-design-text-token="label-sm">elena@vancecapital.com · (415) 555-0192</span>
+              </td>
+              <td class="py-3.5 px-4 text-light-on-surface" data-design-text-token="body-md">The Laurel Residence</td>
+              <td class="py-3.5 px-4 tabular-nums">
+                <span class="block text-light-on-surface" data-design-text-token="body-md">Nov 28, 2026</span>
+                <span class="block font-mono text-mono-md text-light-outline" data-design-text-token="mono-md">09:30 AM – 10:15 AM</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="row-status inline-flex items-center px-2.5 py-0.5 rounded-full bg-success-container text-on-success-container text-label-sm" data-design-text-token="label-sm">Confirmed</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <div class="inline-flex items-center gap-2">
+                  <button type="button" data-action="Completed" class="action-trigger px-3 py-1 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-sm hover:bg-light-surface-container" data-design-text-token="label-sm">Complete</button>
+                  <button type="button" data-action="Cancelled" class="action-trigger px-3 py-1 rounded border border-light-error text-light-error text-label-sm hover:bg-light-error-container" data-design-text-token="label-sm">Cancel</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="booking-tr" data-status="Completed">
+              <td class="py-3.5 px-4 font-mono text-mono-md text-light-primary tabular-nums" data-design-text-token="mono-md">PV-2026-6514</td>
+              <td class="py-3.5 px-4">
+                <span class="block text-light-on-surface font-medium" data-design-text-token="body-md">David Park</span>
+                <span class="block text-label-sm text-light-outline" data-design-text-token="label-sm">dpark@oakridge.co · (512) 555-0173</span>
+              </td>
+              <td class="py-3.5 px-4 text-light-on-surface" data-design-text-token="body-md">Harborview Townhouse</td>
+              <td class="py-3.5 px-4 tabular-nums">
+                <span class="block text-light-on-surface" data-design-text-token="body-md">Nov 18, 2026</span>
+                <span class="block font-mono text-mono-md text-light-outline" data-design-text-token="mono-md">11:00 AM – 11:45 AM</span>
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="row-status inline-flex items-center px-2.5 py-0.5 rounded-full bg-light-secondary-container text-light-on-secondary-container text-label-sm" data-design-text-token="label-sm">Completed</span>
+              </td>
+              <td class="py-3.5 px-4 text-right">
+                <span class="text-label-sm text-light-outline" data-design-text-token="label-sm">Archived</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Confirmation Dialog -->
+  <div id="confirm-dialog" class="hidden fixed inset-0 z-50 bg-light-primary/40 flex items-center justify-center p-4">
+    <div class="bg-light-surface border border-light-outline-variant rounded-md p-6 max-w-sm w-full shadow-lg flex flex-col gap-4">
+      <h3 class="font-headline text-headline-md text-light-on-background" data-design-text-token="headline-md">Update Booking Status?</h3>
+      <p id="dialog-msg" class="text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Are you sure you want to update this booking?</p>
+      <div class="flex justify-end gap-3 pt-2">
+        <button id="dialog-cancel" type="button" class="px-4 py-2 rounded border border-light-outline-variant bg-light-surface text-light-primary text-label-lg" data-design-text-token="label-lg">Keep Current</button>
+        <button id="dialog-confirm" type="button" class="px-4 py-2 rounded bg-light-primary text-light-on-primary text-label-lg" data-design-text-token="label-lg">Confirm Change</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const searchEl = document.getElementById('admin-booking-search');
+    const filterEl = document.getElementById('admin-status-filter');
+    const rows = document.querySelectorAll('.booking-tr');
+
+    function filterTable() {
+      const q = searchEl.value.trim().toLowerCase();
+      const st = filterEl.value;
+      rows.forEach((r) => {
+        const matchQ = !q || r.textContent.toLowerCase().includes(q);
+        const matchS = st === 'all' || r.dataset.status === st;
+        r.classList.toggle('hidden', !(matchQ && matchS));
+      });
+    }
+    searchEl.addEventListener('input', filterTable);
+    filterEl.addEventListener('change', filterTable);
+
+    const dialog = document.getElementById('confirm-dialog');
+    const dialogMsg = document.getElementById('dialog-msg');
+    let pendingTarget = null;
+    let pendingStatus = '';
+
+    document.querySelectorAll('.action-trigger').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        pendingTarget = btn.closest('.booking-tr');
+        pendingStatus = btn.dataset.action;
+        dialogMsg.textContent = `Set booking ${pendingTarget.querySelector('td').textContent} to ${pendingStatus}?`;
+        dialog.classList.remove('hidden');
+      });
+    });
+
+    document.getElementById('dialog-cancel').addEventListener('click', () => dialog.classList.add('hidden'));
+    document.getElementById('dialog-confirm').addEventListener('click', () => {
+      if (pendingTarget) {
+        const badge = pendingTarget.querySelector('.row-status');
+        badge.textContent = pendingStatus;
+        pendingTarget.dataset.status = pendingStatus;
+        badge.className = pendingStatus === 'Confirmed'
+          ? 'row-status inline-flex items-center px-2.5 py-0.5 rounded-full bg-success-container text-on-success-container text-label-sm'
+          : pendingStatus === 'Completed'
+          ? 'row-status inline-flex items-center px-2.5 py-0.5 rounded-full bg-light-secondary-container text-light-on-secondary-container text-label-sm'
+          : 'row-status inline-flex items-center px-2.5 py-0.5 rounded-full bg-light-error-container text-light-on-error-container text-label-sm';
+      }
+      dialog.classList.add('hidden');
+    });
+  </script>
+
+
+</body></html>

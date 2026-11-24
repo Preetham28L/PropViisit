@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropVisit — Admin Time Slots</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="501cc1bcb4b9fee4===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#0D7A6F',
+        'on-accent': '#FFFFFF',
+        'accent-container': '#CCFBF1',
+        'on-accent-container': '#115E59',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#92400E',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#102A43',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#E9F1FF',
+        'light-on-primary-container': '#011D35',
+        'light-secondary': '#49607C',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D8E0EF',
+        'light-on-secondary-container': '#19324B',
+        'light-tertiary': '#77592E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFEEDC',
+        'light-on-tertiary-container': '#291800',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#102A43',
+        'light-surface': '#FFFFFF',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F8FAFC',
+        'light-surface-container': '#F1F5F9',
+        'light-surface-container-high': '#E2E8F0',
+        'light-surface-container-highest': '#CBD5E1',
+        'light-on-surface': '#1B1C1E',
+        'light-surface-variant': '#E0E2EA',
+        'light-on-surface-variant': '#43474D',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#CBD5E1',
+        'light-inverse-surface': '#1E293B',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#B0C9E8',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '56px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Raleway"', 'sans-serif'],
+        'body': ['"Raleway"', 'sans-serif'],
+        'label': ['"Raleway"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['34px', { lineHeight: '42px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '34px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.3px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '240ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Raleway:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body min-h-screen flex flex-col lg:flex-row">
+
+  <!-- Shared Admin Sidebar -->
+  <aside class="hidden lg:flex lg:w-64 shrink-0 bg-light-primary text-light-on-primary min-h-screen flex-col justify-between p-6">
+    <div class="flex flex-col gap-8">
+      <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded bg-accent text-on-accent flex items-center justify-center">
+          <span class="material-symbols-outlined text-title-lg" aria-hidden="true">real_estate_agent</span>
+        </span>
+        <span class="font-headline text-headline-md text-light-on-primary" data-design-text-token="headline-md">PropVisit</span>
+      </a>
+
+      <nav aria-label="Admin Navigation" class="flex flex-col gap-1.5">
+        <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-light-on-primary/85 hover:bg-light-secondary/60 text-label-lg transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">dashboard</span>
+          <span data-design-text-token="label-lg">Overview &amp; Bookings</span>
+        </a>
+        <a href="../admin-properties/AdminProperties.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded text-light-on-primary/85 hover:bg-light-secondary/60 text-label-lg transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">home_work</span>
+          <span data-design-text-token="label-lg">Properties</span>
+        </a>
+        <a href="../admin-slots/AdminSlots.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded bg-light-secondary text-light-on-secondary text-label-lg">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">schedule</span>
+          <span data-design-text-token="label-lg">Time Slots</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-3 pt-6 border-t border-light-secondary">
+      <a href="../customer-portal/CustomerPortal.html" class="flex items-center gap-2.5 text-body-md text-light-on-primary/85 hover:text-light-on-primary">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">open_in_new</span>
+        <span data-design-text-token="body-md">Customer Portal</span>
+      </a>
+      <a href="../admin-login/AdminLogin.html" class="flex items-center gap-2.5 text-body-md text-light-on-primary/85 hover:text-light-on-primary">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">logout</span>
+        <span data-design-text-token="body-md">Sign Out</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile Admin Header -->
+  <header class="lg:hidden bg-light-primary text-light-on-primary px-4 py-3 flex items-center justify-between">
+    <span class="font-headline text-title-lg" data-design-text-token="title-lg">PropVisit Admin</span>
+    <nav class="flex items-center gap-4 text-label-sm">
+      <a href="../admin-dashboard/AdminDashboard.html" data-design-text-token="label-sm">Bookings</a>
+      <a href="../admin-properties/AdminProperties.html" data-design-text-token="label-sm">Properties</a>
+      <a href="../admin-slots/AdminSlots.html" class="underline" data-design-text-token="label-sm">Slots</a>
+    </nav>
+  </header>
+
+  <main class="flex-1 min-w-0 p-4 md:p-8 flex flex-col gap-8">
+    <div>
+      <h1 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-on-background" data-design-text-token="headline-lg">
+        Time Slot Configuration
+      </h1>
+      <p class="text-body-md text-light-outline mt-1" data-design-text-token="body-md">
+        Configure daily visiting hours, block holidays, and inspect live slot occupancy.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+      <!-- Slot Generator Form -->
+      <section class="bg-light-surface border border-light-outline-variant rounded-md p-6 shadow-sm flex flex-col gap-4">
+        <h2 class="font-headline text-headline-md text-light-on-background" data-design-text-token="headline-md">Create Visit Slot</h2>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Property</span>
+          <select class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <option>The Laurel Residence</option>
+            <option>Mercer Sky Penthouse</option>
+            <option>Harborview Townhouse</option>
+            <option>Oakridge Pavilion</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Visit Date</span>
+          <input type="date" value="2026-11-28" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+        </label>
+
+        <div class="grid grid-cols-2 gap-3">
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">Start Time</span>
+            <input type="time" value="16:30" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface">
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-sm text-light-on-surface" data-design-text-token="label-sm">End Time</span>
+            <input type="time" value="17:15" class="w-full rounded border border-light-outline-variant bg-light-surface px-3 py-2 text-body-md text-light-on-surface">
+          </label>
+        </div>
+
+        <button type="button" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="mt-2 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">add</span>
+          <span data-design-text-token="label-lg">Add Time Slot</span>
+        </button>
+      </section>
+
+      <!-- Live Slot Schedule -->
+      <section class="lg:col-span-2 bg-light-surface border border-light-outline-variant rounded-md p-6 shadow-sm flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-light-outline-variant pb-4">
+          <div>
+            <h2 class="font-headline text-headline-md text-light-on-background" data-design-text-token="headline-md">The Laurel Residence · Nov 28, 2026</h2>
+            <p class="text-body-md text-light-outline" data-design-text-token="body-md">4 configured slots · 1 booked · 3 open</p>
+          </div>
+          <button type="button" class="px-3.5 py-1.5 rounded border border-light-error text-light-error text-label-sm hover:bg-light-error-container" data-design-text-token="label-sm">
+            Mark Date as Holiday
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 rounded border border-light-outline-variant bg-light-surface flex items-center justify-between gap-3">
+            <div>
+              <span class="font-mono text-mono-md text-light-primary block tabular-nums" data-design-text-token="mono-md">09:30 AM – 10:15 AM</span>
+              <span class="text-label-sm text-accent" data-design-text-token="label-sm">Available</span>
+            </div>
+            <button type="button" class="text-label-sm text-light-error hover:underline" data-design-text-token="label-sm">Disable</button>
+          </div>
+
+          <div class="p-4 rounded border border-light-outline-variant bg-light-surface flex items-center justify-between gap-3">
+            <div>
+              <span class="font-mono text-mono-md text-light-primary block tabular-nums" data-design-text-token="mono-md">11:00 AM – 11:45 AM</span>
+              <span class="text-label-sm text-accent" data-design-text-token="label-sm">Available</span>
+            </div>
+            <button type="button" class="text-label-sm text-light-error hover:underline" data-design-text-token="label-sm">Disable</button>
+          </div>
+
+          <div class="p-4 rounded border border-light-outline-variant bg-light-surface-container flex items-center justify-between gap-3">
+            <div>
+              <span class="font-mono text-mono-md text-light-on-surface-variant block tabular-nums" data-design-text-token="mono-md">01:30 PM – 02:15 PM</span>
+              <span class="text-label-sm text-on-success-container bg-success-container px-2 py-0.5 rounded-full inline-block mt-1" data-design-text-token="label-sm">Booked · PV-2026-8419</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded border border-light-outline-variant bg-light-surface flex items-center justify-between gap-3">
+            <div>
+              <span class="font-mono text-mono-md text-light-primary block tabular-nums" data-design-text-token="mono-md">03:00 PM – 03:45 PM</span>
+              <span class="text-label-sm text-accent" data-design-text-token="label-sm">Available</span>
+            </div>
+            <button type="button" class="text-label-sm text-light-error hover:underline" data-design-text-token="label-sm">Disable</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+</body></html>

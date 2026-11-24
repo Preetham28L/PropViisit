@@ -1,0 +1,6 @@
+{
+  "name": "PropVisit",
+  "description": "Discover curated architectural properties, schedule personalized in-person site visits, and manage appointments and visiting hours.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

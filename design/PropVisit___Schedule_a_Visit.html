@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PropVisit — Schedule a Visit</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config" data-stitch-original-src="501cc1bcb4b9fee4===../../tailwind.config.js">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#0D7A6F',
+        'on-accent': '#FFFFFF',
+        'accent-container': '#CCFBF1',
+        'on-accent-container': '#115E59',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#92400E',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#102A43',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#E9F1FF',
+        'light-on-primary-container': '#011D35',
+        'light-secondary': '#49607C',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D8E0EF',
+        'light-on-secondary-container': '#19324B',
+        'light-tertiary': '#77592E',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#FFEEDC',
+        'light-on-tertiary-container': '#291800',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#102A43',
+        'light-surface': '#FFFFFF',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F8FAFC',
+        'light-surface-container': '#F1F5F9',
+        'light-surface-container-high': '#E2E8F0',
+        'light-surface-container-highest': '#CBD5E1',
+        'light-on-surface': '#1B1C1E',
+        'light-surface-variant': '#E0E2EA',
+        'light-on-surface-variant': '#43474D',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#CBD5E1',
+        'light-inverse-surface': '#1E293B',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#B0C9E8',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '56px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Raleway"', 'sans-serif'],
+        'body': ['"Raleway"', 'sans-serif'],
+        'label': ['"Raleway"', 'sans-serif'],
+        'mono': ['"Source Code Pro"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['34px', { lineHeight: '42px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '34px', letterSpacing: '0px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.3px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '240ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Raleway:wght@400;500;600;700&amp;family=Source+Code+Pro:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared Navigation Shell -->
+  <header class="sticky top-0 z-30 bg-light-surface border-b border-light-outline-variant">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../customer-portal/CustomerPortal.html" class="flex items-center gap-2.5 text-light-primary">
+        <span class="w-9 h-9 rounded bg-light-primary text-light-on-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-title-lg" aria-hidden="true">real_estate_agent</span>
+        </span>
+        <span class="font-headline text-headline-md text-light-primary" data-design-text-token="headline-md">PropVisit</span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden md:flex items-center gap-6">
+        <a href="../customer-portal/CustomerPortal.html" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">Home</a>
+        <a href="../customer-portal/CustomerPortal.html#properties" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">Explore Properties</a>
+        <a href="../my-bookings/MyBookings.html" class="text-label-lg text-light-on-surface-variant hover:text-light-primary transition-colors duration-state-change" data-design-text-token="label-lg">My Bookings</a>
+      </nav>
+
+      <a href="../property-details/PropertyDetails.html" class="inline-flex items-center gap-1.5 text-label-lg text-light-secondary hover:text-light-primary">
+        <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_back</span>
+        <span data-design-text-token="label-lg">Back to Property</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-10 flex flex-col gap-8">
+    <div>
+      <h1 class="font-headline text-headline-lg-mobile md:text-headline-lg text-light-on-background" data-design-text-token="headline-lg">
+        Schedule Your Property Visit
+      </h1>
+      <p class="text-body-md text-light-outline mt-1" data-design-text-token="body-md">
+        Select an available date and time slot. Slots are reserved exclusively upon confirmation to prevent double bookings.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <!-- Booking Form -->
+      <form id="booking-form" class="lg:col-span-2 bg-light-surface border border-light-outline-variant rounded-md p-6 shadow-sm flex flex-col gap-6" novalidate>
+        <!-- Step 1: Date & Time Slot -->
+        <div class="flex flex-col gap-4 border-b border-light-outline-variant pb-6">
+          <h2 class="font-headline text-headline-md text-light-on-background" data-design-text-token="headline-md">1. Date &amp; Time Slot</h2>
+
+          <label class="flex flex-col gap-1.5 max-w-xs">
+            <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Preferred Visit Date</span>
+            <input id="visit-date" type="date" value="2026-11-28" min="2026-11-24" required class="w-full rounded border border-light-outline-variant bg-light-surface px-3.5 py-2.5 text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <span id="date-error" class="hidden text-label-sm text-light-error" role="alert" data-design-text-token="label-sm">Past dates cannot be booked.</span>
+          </label>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Available Time Slots</span>
+            <div id="slot-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button type="button" data-slot="09:30 AM – 10:15 AM" class="slot-btn text-left p-3.5 rounded border-2 border-light-primary bg-light-primary-container text-light-on-primary-container transition-colors duration-state-change">
+                <span class="font-mono text-mono-md block tabular-nums" data-design-text-token="mono-md">09:30 AM – 10:15 AM</span>
+                <span class="text-label-sm text-accent" data-design-text-token="label-sm">Selected · Available</span>
+              </button>
+
+              <button type="button" data-slot="11:00 AM – 11:45 AM" class="slot-btn text-left p-3.5 rounded border border-light-outline-variant bg-light-surface text-light-on-surface hover:border-light-primary transition-colors duration-state-change">
+                <span class="font-mono text-mono-md block tabular-nums" data-design-text-token="mono-md">11:00 AM – 11:45 AM</span>
+                <span class="text-label-sm text-accent" data-design-text-token="label-sm">Available</span>
+              </button>
+
+              <button type="button" disabled class="text-left p-3.5 rounded border border-light-outline-variant bg-light-surface-container text-light-on-surface-variant cursor-not-allowed">
+                <span class="font-mono text-mono-md block tabular-nums line-through" data-design-text-token="mono-md">01:30 PM – 02:15 PM</span>
+                <span class="text-label-sm text-light-on-surface-variant" data-design-text-token="label-sm">Already Booked</span>
+              </button>
+
+              <button type="button" data-slot="03:00 PM – 03:45 PM" class="slot-btn text-left p-3.5 rounded border border-light-outline-variant bg-light-surface text-light-on-surface hover:border-light-primary transition-colors duration-state-change">
+                <span class="font-mono text-mono-md block tabular-nums" data-design-text-token="mono-md">03:00 PM – 03:45 PM</span>
+                <span class="text-label-sm text-accent" data-design-text-token="label-sm">Available</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Visitor Information -->
+        <div class="flex flex-col gap-4">
+          <h2 class="font-headline text-headline-md text-light-on-background" data-design-text-token="headline-md">2. Visitor Details</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+              <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Full Name</span>
+              <input id="visitor-name" type="text" placeholder="Elena Vance" required class="w-full rounded border border-light-outline-variant bg-light-surface px-3.5 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            </label>
+
+            <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-1.5">
+              <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Phone Number</span>
+              <input id="visitor-phone" type="tel" inputmode="numeric" placeholder="(415) 555-0192" required class="w-full rounded border border-light-outline-variant bg-light-surface px-3.5 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            </label>
+          </div>
+
+          <label data-component-id="input-field-icon" data-component-type="input-field" data-component-variant="with-icon" class="flex flex-col gap-1.5">
+            <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Email Address</span>
+            <div class="relative flex items-center">
+              <span class="material-symbols-outlined absolute left-3 text-light-outline text-title-md pointer-events-none" aria-hidden="true">mail</span>
+              <input id="visitor-email" type="email" inputmode="email" placeholder="elena@vancecapital.com" required class="w-full rounded border border-light-outline-variant bg-light-surface pl-10 pr-3.5 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            </div>
+          </label>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="text-label-lg text-light-on-surface" data-design-text-token="label-lg">Additional Message (Optional)</span>
+            <textarea id="visitor-notes" rows="3" placeholder="Any specific areas of the property you would like to inspect..." class="w-full rounded border border-light-outline-variant bg-light-surface px-3.5 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-1 focus:ring-light-primary"></textarea>
+          </label>
+        </div>
+
+        <p id="form-error" class="hidden text-body-md text-light-error bg-light-error-container text-light-on-error-container px-4 py-3 rounded" role="alert" data-design-text-token="body-md"></p>
+
+        <button id="submit-booking" type="submit" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="w-full sm:w-auto self-start inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary text-label-lg hover:bg-light-secondary transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">event_available</span>
+          <span data-design-text-token="label-lg">Confirm Property Visit</span>
+        </button>
+
+        <!-- Confirmation Panel (shown after valid submit) -->
+        <div id="booking-confirmation" class="hidden rounded-md bg-success-container text-on-success-container p-5 flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-title-lg" aria-hidden="true">check_circle</span>
+            <h3 class="font-title text-title-lg" data-design-text-token="title-lg">Visit Request Confirmed</h3>
+          </div>
+          <p class="text-body-md" data-design-text-token="body-md">
+            Your booking reference is <span id="conf-ref" class="font-mono text-mono-md font-bold">PV-2026-8419</span>. View or manage this appointment anytime in <a href="../my-bookings/MyBookings.html" class="underline font-semibold">My Bookings</a>.
+          </p>
+        </div>
+      </form>
+
+      <!-- Selected Property Summary -->
+      <aside class="bg-light-surface border border-light-outline-variant rounded-md overflow-hidden shadow-sm flex flex-col">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrC7TLtFQmDIWSBcVHMGsDSNsOICdPwIDcBx6yFy6CtFXp5VhinInJr3d0moNltr1dFyARWmLAgiEr1qh1rGy5yC6zxVFWxzOddjZHHYT4eKs3VlWFgacSz-jEXlmr8Ih9b13RBJEx3g3Zh1mkOleR3JQ6RP8_oz-SY7rdb2c9NZf7fEA0eYZUmUPrSi0QNtVYAZ4G9U5VXSgZl3k3xzesB-uQqw3OmMyxQ_Joe0sEzDUyMjI_g" alt="The Laurel Residence" class="w-full h-44 object-cover" data-stitch-original-src="85df91160a9085cd===../../images/prop_laurel.jpg">
+        <div class="p-5 flex flex-col gap-3">
+          <span class="text-label-sm text-accent uppercase" data-design-text-token="label-sm">Selected Property</span>
+          <h3 class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">The Laurel Residence</h3>
+          <p class="text-body-md text-light-outline" data-design-text-token="body-md">2480 Broadway St, San Francisco</p>
+          <div class="border-t border-light-outline-variant pt-3 flex flex-col gap-1.5 text-body-md">
+            <div class="flex justify-between">
+              <span class="text-light-outline" data-design-text-token="body-md">Date</span>
+              <span id="summary-date" class="text-light-on-surface tabular-nums font-medium" data-design-text-token="body-md">Nov 28, 2026</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-light-outline" data-design-text-token="body-md">Time Slot</span>
+              <span id="summary-slot" class="font-mono text-mono-md text-light-primary tabular-nums" data-design-text-token="mono-md">09:30 AM – 10:15 AM</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const slotBtns = document.querySelectorAll('.slot-btn');
+    const summarySlot = document.getElementById('summary-slot');
+    const dateInput = document.getElementById('visit-date');
+    const summaryDate = document.getElementById('summary-date');
+    const dateError = document.getElementById('date-error');
+    const form = document.getElementById('booking-form');
+    const formError = document.getElementById('form-error');
+    const confirmation = document.getElementById('booking-confirmation');
+    const submitBtn = document.getElementById('submit-booking');
+    let selectedSlot = '09:30 AM – 10:15 AM';
+
+    slotBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        slotBtns.forEach((b) => {
+          b.className = 'slot-btn text-left p-3.5 rounded border border-light-outline-variant bg-light-surface text-light-on-surface hover:border-light-primary transition-colors duration-state-change';
+          b.querySelector('span:last-child').textContent = 'Available';
+        });
+        btn.className = 'slot-btn text-left p-3.5 rounded border-2 border-light-primary bg-light-primary-container text-light-on-primary-container transition-colors duration-state-change';
+        btn.querySelector('span:last-child').textContent = 'Selected · Available';
+        selectedSlot = btn.dataset.slot;
+        summarySlot.textContent = selectedSlot;
+      });
+    });
+
+    dateInput.addEventListener('change', () => {
+      const val = dateInput.value;
+      const isPast = val && val < '2026-11-24';
+      dateError.classList.toggle('hidden', !isPast);
+      if (val) summaryDate.textContent = val;
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formError.classList.add('hidden');
+      const name = document.getElementById('visitor-name').value.trim();
+      const email = document.getElementById('visitor-email').value.trim();
+      const phone = document.getElementById('visitor-phone').value.trim();
+
+      if (!name || !email.includes('@') || phone.replace(/\D/g, '').length < 7) {
+        formError.textContent = 'Please provide your full name, a valid email address, and a 10-digit phone number.';
+        formError.classList.remove('hidden');
+        return;
+      }
+
+      if (dateInput.value < '2026-11-24') {
+        formError.textContent = 'Past dates cannot be booked. Please select an upcoming date.';
+        formError.classList.remove('hidden');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+      confirmation.classList.remove('hidden');
+    });
+  </script>
+
+
+</body></html>
